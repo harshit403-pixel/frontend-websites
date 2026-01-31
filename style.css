@@ -1,0 +1,610 @@
+@font-face {
+  font-family: hell;
+  src: url(./Inter-Regular.47e70f6ff0.woff2);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    
+}
+
+main{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 10% 40% 22% 25%  ;
+  padding: 10px;
+  gap: 10px;
+
+}
+
+.nav{
+  font-size: 12px;
+  letter-spacing: -.4;
+  background-color: rgb(255, 255, 255);
+grid-column-start:1 ;
+grid-column-end: 4;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-family: hell;
+width: 100%;
+}
+
+.navleft{
+  height: 100%;
+  width: 99%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+}
+
+.left1{
+  width: 12%;
+  border-radius: 100px;
+  padding: 4px 4px 4px 20px;
+  display: flex;
+  align-items: center;
+  border: 4px solid rgba(0, 0, 0, 0.407);
+  gap: 16px;
+  
+}
+.left2{
+  height: 75%;
+  width:94%;
+    border-radius: 100px;
+  align-items: center;
+  display: flex;
+  border: 3px solid rgba(0, 0, 0, 0.407);
+  
+
+}
+.left2 h3{
+  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-right: 2px;
+  padding-left: 10px;
+  border: 4px solid rgba(0, 0, 0, 0.407);
+  border-radius: 100px;
+
+}
+#blackbtn{
+  margin-left: 30px;
+  font-size: 13px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.navright{
+
+  width: 9%;
+  border-radius: 100px;
+display: flex;
+align-items: center;
+gap: 16px;
+  border: 4px solid rgba(0, 0, 0, 0.407);
+padding: 4px 4px 4px 26px;
+
+}
+
+.navright img{
+   height:36.5px;
+}
+
+ 
+ .left1 img{
+  rotate: -50deg;
+    height:35.2px;
+ }
+
+.lefttop{
+
+  font-family: hell;
+  color: white;
+  background-image: url(https://i.pinimg.com/736x/11/9c/11/119c118d2ecd8ec3a3d1e131e3060e4c.jpg);
+ background-size:cover ;
+background-position: 1px ;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 40px;
+    gap: 20px;
+grid-row-start: 2;
+grid-row-end: 3;
+border-radius: 30px;
+}
+
+.line1{
+  margin-bottom: 2px;
+  border-radius: 100px;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.326);
+}
+.line2{
+    margin-top: 36px;
+  border-radius: 100px;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.326);
+}
+.lefttop h1{
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.lefttop0{
+ padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lefttop1 h3{
+    font-size: 11px;
+  font-weight: 100px;
+}
+.lefttop1{
+
+  border-radius: 100px;
+  padding: 4px 4px 4px 20px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(255, 255, 255);
+  gap: 16px;
+  
+}
+.lefttop1 img{
+  filter: invert();
+  rotate: -50deg;
+    height:35.2px;
+}
+.lefttop0 h2{
+  font-weight: normal;
+  font-size: 15px;
+}
+.leftbottom{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 20px;
+  background-color: rgb(255, 255, 255);
+  grid-row-start: 3;
+  grid-row-end: 5;
+  border-radius: 30px;
+  border: 2px solid;
+
+
+}
+.leftbottom button{
+  width: 100px;
+  font-size: 11px;
+  background-color: transparent;
+  border-radius: 100px;
+}
+
+.name{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  font-family: hell;
+  font-size: 20px;
+}
+.charts1 , .charts2{
+  margin-bottom: 2px;
+  width: 100%;
+display: flex;
+
+}
+
+.charts1 .boldlline{
+  width:30% ;
+  background-color: black;
+  height: 20px;
+  border-radius: 100px;
+}
+.charts1 .lightline{
+  height: 20px;
+  width: 74%;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.193);
+}
+.charts1 .lightline2{
+  height: 20px;
+  width: 3%;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.193);
+}
+
+.charts2 .boldlline{
+  width:70% ;
+  background-color: black;
+  height: 20px;
+  border-radius: 100px;
+}
+.charts2 .lightline{
+  height: 20px;
+  width: 30%;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.193);
+}
+.leftbottom p{
+  width: 55%;
+  font-family: hell;
+}
+.leftbottom span{
+  color: rgba(0, 0, 0, 0.285);
+}
+.checkbtn{
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  font-family: hell;
+  font-size: 10px;
+  font-weight: normal;
+  width: 100%;
+  justify-content: space-between;
+  border-radius: 100px;
+  border: 2px solid;
+  padding-top: 1px ;
+  padding-bottom: 1px ;
+  padding-left: 17px;
+  padding-right:2px ;
+}
+.name img{
+  border-radius: 50%;
+  height: 50px;
+
+}
+.checkbtn img{
+rotate: -50deg;
+ height:40px;
+
+}
+.righttop1{
+  font-family: hell;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 30px;
+background-color: rgb(252, 214, 88);
+padding: 30px;
+grid-column-start: 2 ;
+grid-column-end: 3;
+}
+.righttop1 h1{
+  margin-top: 8px;
+
+}
+.righttop1 p{
+  font-size: 11.2px;
+
+}
+.righttop1 p span{
+  text-decoration: underline;
+
+}
+
+.loading{
+  display: flex;
+}
+.lightload{
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.159);
+  border-radius: 100px;
+  height: 14px;
+  width: 82%;
+}
+.darkload{
+  position:absolute;
+  z-index: 3;
+    background-color: rgb(8, 8, 8);
+  border-radius: 100px;
+  height: 14px;
+  width: 60%;
+}
+.line3{
+      margin-top: 10px;
+  border-radius: 100px;
+  width: 98%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.362);
+}
+.arrow{
+  display: flex;
+  justify-content: space-between;
+}
+.arrow img{
+  filter: invert();
+  height: 30px;
+  border-radius: 50%;
+  padding: 9.2px;
+  rotate: -50deg;
+  background-color: rgb(255, 255, 255);
+}
+
+.righttop1 button{
+    width: 100px;
+    height: 20px;
+    padding: 2px;
+  font-size: 11px;
+  background-color: transparent;
+  border-radius: 100px;
+}
+
+.arrowimg{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:25px;
+
+}
+.arrowimg img{
+  height: 35px;
+  border-radius: 50%;
+
+}
+
+
+
+.righttop2{
+      background-color:rgb(213, 214, 182);
+      border-radius: 30px;
+font-family: hell;
+padding: 30px;
+grid-column-start: 3 ;
+grid-column-end: 4;
+}
+.righttop2 h1{
+  margin-top: 28px;
+}
+.righttop2 span{
+  text-decoration: underline;
+}
+.line6{
+
+  margin-top: 4px;
+  border-radius: 100px;
+  width: 98%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.362);
+}
+.nets{
+  margin-top: 19px;
+  display: flex;
+  align-items: end;
+  gap: 2px;
+  justify-content: center;
+}
+
+.net7{
+    height: 95px;
+  background-color: black;
+  width: 12%;
+  border-radius: 14px;
+}
+.net1{
+  height: 20px;
+  background-color: black;
+  width: 12%;
+  border-radius: 14px;
+}
+.net2{
+  height: 25px;
+  background-color: black;
+  width: 12%;
+  border-radius: 12px;
+}
+.net3{
+  height: 40px;
+  background-color: black;
+  width: 12%;
+  border-radius: 14px;
+}
+.net4{
+  height: 52px;
+  background-color: black;
+  width: 12%;
+  border-radius: 14px;
+}
+.net5{
+  height: 65px;
+  background-color: black;
+  width: 12%;
+  border-radius: 14px;
+}
+.net6{
+    height: 82px;
+  background-color: black;
+  width: 12%;
+  border-radius: 14px;
+}
+
+
+.righttop2 p{
+  padding-top: 5px;
+  font-size: 12px;
+}
+.righttop2 .arrow p{
+  font-size: 13px;
+  font-weight: 900;
+}
+.righttop2 button{
+    width: 100px;
+    height: 20px;
+    padding: 2px;
+  font-size: 11px;
+  background-color: transparent;
+  border-radius: 100px;
+}
+.rightcenter{
+  font-family: hell;
+  padding: 4px;
+  border: 2px solid  black;
+  border-radius: 30px;
+  position: relative;
+  background-color: #ffffff;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  
+}
+#profile{
+  height: 16px;
+}
+.rightcenter .img{
+  position:relative;
+  border-radius: 25px;
+  width: 100%;
+  height: 100;
+  background-image: url(https://i.pinimg.com/1200x/e2/ab/f4/e2abf447b0d89a760eda15f7a98fd3bf.jpg);
+  background-position: center;
+}
+
+.btns{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 22%;
+  left: 6%;
+}
+.btns button{
+
+  text-align: center;
+  padding: 1px 11px 1px 11px;
+  border-radius: 100px;
+  background-color: white;
+  border: none;
+}
+
+.intro{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  font-size: 10px;
+
+}
+.line4{
+  width:93%;
+  margin-left: 23px;
+}
+.introright{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rightbottom1{
+  display: flex;
+  flex-direction:column ;
+  background-color: rgb(217, 209, 235);
+  border-radius: 30px;
+  border: 2px solid black;
+  padding: 20px;
+  font-family: hell;
+}
+
+.rightbottom1 p{
+  margin-top: 40px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.553);
+}
+.pro{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+.rightbottom1 button{
+  position: relative;
+      width: 100px;
+    height: 20px;
+    padding: 2px;
+  font-size: 11px;
+  background-color: transparent;
+  border-radius: 100px;
+}
+
+.lightload2{
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.14);
+  border-radius: 100px;
+  height: 12px;
+  width: 21%;
+}
+.darkload2{
+  position:absolute;
+  z-index: 3;
+    background-color: rgb(8, 8, 8);
+  border-radius: 100px;
+  height: 12px;
+  width: 6%;
+}
+
+.line5{
+  margin-top: 22px;
+}
+
+.rightbottom2{
+  border: 2px solid black;
+  border-radius: 30px;
+  padding: 20px;
+  font-family: hell;
+  background-color: rgb(255, 255, 255);
+}
+.rightbottom2 p{
+  margin-top: 40px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.553);
+}
+.rightbottom2 button{
+    position: relative;
+      width: 100px;
+    height: 20px;
+    padding: 2px;
+  font-size: 11px;
+  background-color: transparent;
+  border-radius: 100px;
+}
+
+.lightload3{
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.125);
+  border-radius: 100px;
+  height: 12px;
+  width: 21%;
+}
+.darkload3{
+  position:absolute;
+  z-index: 3;
+    background-color: rgb(8, 8, 8);
+  border-radius: 100px;
+  height: 12px;
+  width: 16%;
+}
