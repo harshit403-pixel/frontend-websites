@@ -41,6 +41,38 @@ html, body{
         transition: all ease .4s;
     height: .8vw;
 }
+#arrow2{
+ 
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 50%;
+    filter: invert(1);
+    rotate: -52deg;
+    transition: all ease .4s;
+    height:2vw;
+    padding: .6vw;
+
+}
+#arrow3{
+ 
+    box-shadow: inset 0px 0px .5px .3px black;
+    border-radius: 50%;
+    filter: invert(0);
+    rotate: 180deg;
+    transition: all ease .4s;
+    height:2vw;
+    padding: .6vw;
+
+}
+#arrow4{
+ 
+    box-shadow: inset 0px 0px .5px .3px black;
+    border-radius: 50%;
+    filter: invert(0);
+    transition: all ease .4s;
+    height:2vw;
+    padding: .6vw;
+
+}
 
 
 #blue-btn:hover{
@@ -58,15 +90,16 @@ html, body{
 
 /* navbar designing */
 nav{
-    position: fixed;
+    position:fixed;
     backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.436);
+    background-color: rgba(255, 255, 255, 0.43);
     width: 100%;
     height: 6vmax;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 3vmax;
+    z-index: 100;
 
 }
 nav a{
@@ -239,17 +272,12 @@ a.logo {
 
 /* section2 grid */
 .section2{
-    display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: 18% 62% 20%;
-    gap: 1.5vmax;
+
+    width: 100%;
     padding: 1.5vmax;
 }
 
 .about-para{
-
-    grid-column-start: 1;
-    grid-column-end: 4;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -265,32 +293,29 @@ grid-template-columns: 1fr 1fr 1fr;
 }
 
 .about-middle{
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    display: flex;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 350px;
     gap: 3vmax;
     padding: 2vmax;
-    flex-wrap: wrap;
 }
 
 .middle1{
-    flex-shrink: 0;
     border-radius: 40px;
-    flex: 1;
     background-color: #0d1a2e;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px 30px;
+    justify-content: space-between;
+    padding: 30px 30px;
 }
 .middle1 img{
     height: 5vmax;
 }
 .middle1 p{
-    font-size: 2vmax;
+    font-size: 1.6vmax;
     font-weight: 200;
 }
 .light-para{
@@ -383,15 +408,18 @@ grid-template-columns: 1fr 1fr 1fr;
 }
 .about-fact p{
     color: #0d1a2e;
+    margin-top: 1vw;
     font-weight: 500;
     font-size: 1.8vmax;
 }
 .about-features{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
     justify-content: center;
     align-items: center;
     gap: 12vmax;
-    flex-wrap: wrap;
+    margin-top: 1vw;
 }
 .about-features span{
     display: flex;
@@ -412,7 +440,7 @@ grid-template-columns: 1fr 1fr 1fr;
     flex-shrink: 0;
     border-radius: 40px;
     flex: 1;
-    background-color: #f7f8fc;
+    background-color: #eaeaea;
     padding: 40px 30px;
     display: flex;
     justify-content: space-between;
@@ -438,7 +466,7 @@ grid-template-columns: 1fr 1fr 1fr;
 .middle3-bottom{
     display: flex;
     gap: 2vmax;
-        font-weight:600 ;
+    font-weight:600 ;
 
 }
 .dots{
@@ -464,26 +492,36 @@ grid-template-columns: 1fr 1fr 1fr;
     flex-direction: column;
     gap: .68vmax;
 }
-
+/* responsive ness of section 2 */
 @media (max-width:900px) {
     
+    .about-middle{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(3, 1fr);
+    gap: 3vmax;
+    padding: 2vmax;
+}
+
 .about-para p{
     width: 50%;
     font-size: 1.4vmax;
     font-weight: 500;
 }
 .about-features{
-    gap: 1vmax;
+    gap: 5vw;
+    margin-top: 4vw;
+    padding: 0px 13px;
 
 }
-.middle3{
-    display: none;
+.about-features span{
+    font-size: 2vmax;
 }
-.middle1{
-    justify-content: space-between;
+.about-features p{
+    font-size: .8vmax;
+}
 
-}
-.middle1, .middle2{
+.middle1, .middle2, .middle3{
     border-radius: 12px;
 }
 .middle1 p{
@@ -497,4 +535,107 @@ grid-template-columns: 1fr 1fr 1fr;
     margin-right: 20px;
 
 }
+}
+
+/*section 3  */
+
+
+.section3{
+    height: 100%;
+    width: 100%;
+    box-shadow:0px -1px 0px 0px #00000027;
+    margin-top: 5vmax;
+}
+.services-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3vmax;
+    gap: 2vmax;
+    height: 430px;
+}
+.service-1{
+    border-radius: 10px;
+    padding: 2vmax;
+    display: flex;
+    flex-direction: column;
+    background-color: #0000000b;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2vmax;
+
+}
+.service-1 p{
+    font-weight: 500;
+    font-size: 1.7vmax;
+    width: 90%;
+}
+.service-2{
+    border-radius: 10px;
+    background-image: url(https://i.pinimg.com/1200x/ad/c2/e3/adc2e32a6e7d640ab6cffb66f667d2d6.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:space-between;
+    padding:1.4vmax 1vmax ;
+}
+.service-2-btm{
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: .5vmax;
+}
+.service-3{
+    display: flex;
+    border-radius: 10px;
+    background-color: #0000000b;
+    flex-direction: column;
+    height: 100%;
+}
+.service-3top{
+    height: 73%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1vmax;
+    border-radius: 10px 10px 0px 0px;
+    background-image: url(https://i.pinimg.com/736x/03/c6/d3/03c6d3f0a47b0ceac37cfb5bda987383.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20% 34%;
+}
+.service-3top h2{
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.989);
+}
+.service-3btm{
+    padding: 0.2vmax 1vmax;
+    flex-direction: column;
+    display: flex;
+    gap: 1vmax;
+}
+.service-3btm p{
+    font-size: 1.4vmax;
+}
+
+@media (max-width:900px) {
+    .services-grid{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(3,400px);
+}
+
+.service-1, .service-2, .section3{
+    height: 400px;
+}
+.service-1 p{
+    font-weight: 500;
+    font-size: 3vmax;
+    width: 90%;
+}
+    
 }
