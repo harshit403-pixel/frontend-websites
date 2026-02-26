@@ -33,12 +33,17 @@ body{
     background-color:rgb(0, 29, 33) ;
 }
 nav{
+    position:fixed;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.16);
     height: 100px;
     width: 100%;
     align-items: center;
     justify-content: space-between;
     padding: 50px;
     display: flex;
+    transition: all ease .5s;
 }
 
 .nav1{
@@ -71,7 +76,7 @@ nav{
 }
 
 .body{
-    padding-top: 45px;
+    padding-top: 100px;
     display: flex;
     justify-content: center;
     flex-direction: column;
