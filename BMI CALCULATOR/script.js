@@ -1,101 +1,129 @@
-  let unit = 'metric';
-  let history = JSON.parse(localStorage.getItem('bmi_history') || '[]');
+var mode = 'metric'
+var log = []
 
-  const colors = {
-    Underweight: 'var(--underweight)',
-    Normal: 'var(--normal)',
-    Overweight: 'var(--overweight)',
-    Obese: 'var(--obese)'
-  };
+try { log = JSON.parse(localStorage.getItem('bmi_log') || '[]') } catch(e) {}
 
-  function setUnit(u) {
-    unit = u;
-    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
-    document.getElementById('btn-imperial').classList.toggle('active', u === 'imperial');
-    document.getElementById('unit-height').textContent = u === 'metric' ? 'cm' : 'in';
-    document.getElementById('unit-weight').textContent = u === 'metric' ? 'kg' : 'lbs';
-    document.getElementById('height').placeholder = u === 'metric' ? '170' : '67';
-    document.getElementById('weight').placeholder = u === 'metric' ? '70' : '154';
-    document.getElementById('result').classList.remove('show');
-    document.getElementById('error-msg').classList.remove('show');
-  }
+var colors = {
+  underweight: '#5b8dd9',
+  normal: '#4ade80',
+  overweight: '#f59e0b',
+  obese: '#f87171'
+}
 
-  function getCategory(bmi) {
-    if (bmi < 18.5) return 'Underweight';
-    if (bmi < 25)   return 'Normal';
-    if (bmi < 30)   return 'Overweight';
-    return 'Obese';
-  }
+document.querySelectorAll('.switch-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    mode = btn.getAttribute('data-unit')
 
-  function bmiToPercent(bmi) {
-    // Map BMI 10–40 to 0–100%
-    return Math.min(100, Math.max(0, ((bmi - 10) / 30) * 100));
-  }
+    document.querySelectorAll('.switch-btn').forEach(function(b) {
+      b.classList.remove('active')
+    })
+    btn.classList.add('active')
 
-  function calculate() {
-    const hVal = parseFloat(document.getElementById('height').value);
-    const wVal = parseFloat(document.getElementById('weight').value);
-    const err = document.getElementById('error-msg');
-
-    if (!hVal || !wVal || hVal <= 0 || wVal <= 0) {
-      err.classList.add('show');
-      document.getElementById('result').classList.remove('show');
-      return;
-    }
-    err.classList.remove('show');
-
-    let bmi;
-    if (unit === 'metric') {
-      const hm = hVal / 100;
-      bmi = wVal / (hm * hm);
+    if (mode === 'metric') {
+      document.querySelector('#uh').textContent = 'cm'
+      document.querySelector('#uw').textContent = 'kg'
+      document.querySelector('#h').placeholder = '170'
+      document.querySelector('#w').placeholder = '70'
     } else {
-      bmi = (703 * wVal) / (hVal * hVal);
+      document.querySelector('#uh').textContent = 'in'
+      document.querySelector('#uw').textContent = 'lbs'
+      document.querySelector('#h').placeholder = '67'
+      document.querySelector('#w').placeholder = '154'
     }
 
-    bmi = Math.round(bmi * 100) / 100;
-    const cat = getCategory(bmi);
-    const color = colors[cat];
-    const pct = bmiToPercent(bmi);
+    document.querySelector('#out').classList.remove('on')
+    document.querySelector('#err').classList.remove('on')
+  })
+})
 
-    document.getElementById('bmi-value').textContent = bmi.toFixed(1);
-    document.getElementById('bmi-value').style.color = color;
-    document.getElementById('bmi-cat').textContent = cat;
-    document.getElementById('bmi-cat').style.color = color;
-    document.getElementById('bar-fill').style.width = pct + '%';
-    document.getElementById('bar-fill').style.background = color;
-    document.getElementById('bar-marker').style.left = pct + '%';
-    document.getElementById('result').classList.add('show');
+document.querySelector('#go').addEventListener('click', calc)
 
-    // Save to history
-    const now = new Date();
-    const entry = {
-      bmi: bmi.toFixed(1),
-      cat,
-      time: now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    };
-    history.unshift(entry);
-    if (history.length > 5) history = history.slice(0, 5);
-    localStorage.setItem('bmi_history', JSON.stringify(history));
-    renderHistory();
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') calc()
+})
+
+function calc() {
+  var h = parseFloat(document.querySelector('#h').value)
+  var w = parseFloat(document.querySelector('#w').value)
+
+  if (!h || !w || h <= 0 || w <= 0) {
+    document.querySelector('#err').classList.add('on')
+    document.querySelector('#out').classList.remove('on')
+    return
   }
 
-  function renderHistory() {
-    const container = document.getElementById('history');
-    const list = document.getElementById('history-list');
-    if (history.length === 0) { container.style.display = 'none'; return; }
-    container.style.display = 'block';
-    list.innerHTML = history.map(h => `
-      <div class="history-item">
-        <div>
-          <span class="h-bmi">${h.bmi}</span>
-          <span class="h-cat" style="margin-left:10px;color:${colors[h.cat]}">${h.cat}</span>
-        </div>
-        <span class="h-time">${h.time}</span>
-      </div>
-    `).join('');
+  document.querySelector('#err').classList.remove('on')
+
+  var bmi
+
+  if (mode === 'metric') {
+    var hm = h / 100
+    bmi = w / (hm * hm)
+  } else {
+    bmi = (703 * w) / (h * h)
   }
 
-  // Keyboard: Enter to calculate
-  document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+  bmi = Math.round(bmi * 100) / 100
 
-  renderHistory();
+  var category
+
+  if (bmi < 18.5) {
+    category = 'underweight'
+  } else if (bmi < 25) {
+    category = 'normal'
+  } else if (bmi < 30) {
+    category = 'overweight'
+  } else {
+    category = 'obese'
+  }
+
+  var color = colors[category]
+  var pos = ((bmi - 10) / 30) * 100
+  if (pos > 100) pos = 100
+  if (pos < 0) pos = 0
+
+  document.querySelector('#bnum').textContent = bmi.toFixed(1)
+  document.querySelector('#bnum').style.color = color
+  document.querySelector('#bcat').textContent = category
+  document.querySelector('#bcat').style.color = color
+  document.querySelector('#tfill').style.width = pos + '%'
+  document.querySelector('#tfill').style.background = color
+  document.querySelector('#tpin').style.left = pos + '%'
+
+  document.querySelector('#out').classList.add('on')
+
+  var time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+
+  log.unshift({ bmi: bmi.toFixed(1), cat: category, t: time })
+  if (log.length > 5) log.pop()
+
+  try { localStorage.setItem('bmi_log', JSON.stringify(log)) } catch(e) {}
+
+  showLog()
+}
+
+function showLog() {
+  if (log.length === 0) {
+    document.querySelector('#hwrap').classList.remove('on')
+    return
+  }
+
+  document.querySelector('#hwrap').classList.add('on')
+
+  var html = ''
+
+  for (var i = 0; i < log.length; i++) {
+    var item = log[i]
+    html += '<li class="hist-item">'
+    html += '<span>'
+    html += '<span class="h-val">' + item.bmi + '</span>'
+    html += '<span class="h-cat" style="color:' + colors[item.cat] + '">' + item.cat + '</span>'
+    html += '</span>'
+    html += '<span class="h-time">' + item.t + '</span>'
+    html += '</li>'
+  }
+
+  document.querySelector('#hlist').innerHTML = html
+}
+
+showLog()
