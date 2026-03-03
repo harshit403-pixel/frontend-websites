@@ -19,6 +19,7 @@ resetbtn.addEventListener("click", () => {
     storedWeights = []
     localStorage.setItem("storedWeights", JSON.stringify(storedWeights))
     storedResult.innerHTML = ""
+    result.innerHTML = ""
 })
 
 storedWeights.forEach((elem)=>{
