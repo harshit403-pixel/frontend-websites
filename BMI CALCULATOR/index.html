@@ -1,52 +1,53 @@
-<!-- index.html -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BMI</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="top">
-      <h1 class="logo">BMI</h1>
-      <p class="tagline">body mass index</p>
+    <main>
+
+        <div class="inner-main">
+        <div class="logo">
+            <h1>BMI CALCULATOR</h1>
+            <span>Body Mass Index</span>
+        </div>
+        <h4>Enter your details</h4>
+        <div class="switch-btn">
+            <button id="kilogram">kg,cm</button>
+            <button id="inches">lbs,inches</button>
+        </div>
+        <form class="inputs">
+        <div class="weight-kg">
+            <input id="kg" type="number" placeholder="100 kg">
+            <input id="cm" type="number" placeholder="100 cm">
+        </div>
+        <div class="weight-lbs">
+            <input id="lbs" type="number" placeholder="100 lbs">
+            <input id="inch" type="number" placeholder="100 in">
+        </div>
+        <button>Calculate</button>
+        </form>
+        <p class="error">Fill all the details</p>
+        <div class="result">
+
+
+
     </div>
-    <div class="unit-switch">
-      <button class="switch-btn active" data-unit="metric">CM,KG</button>
-      <span class="slash">/</span>
-      <button class="switch-btn" data-unit="imperial">INCH,LBS</button>
+
+    <div class="prev-result">
+            <p>
+        Previous Results
+    </p> 
+    <button id="reset">Reset</button>
     </div>
-    <div class="inputs">
-      <div class="input-group">
-        <input class="field" id="h" type="number" placeholder="170" min="0" />
-        <label class="field-label" for="h">height — <span id="uh">cm</span></label>
-      </div>
-      <div class="input-group">
-        <input class="field" id="w" type="number" placeholder="70" min="0" />
-        <label class="field-label" for="w">weight — <span id="uw">kg</span></label>
-      </div>
+    <div class="last-result">
+
     </div>
-    <p class="err-msg" id="err">enter valid values</p>
-    <button class="go-btn" id="go">calculate</button>
-    <div class="output" id="out">
-      <div class="bmi-num" id="bnum">—</div>
-      <div class="bmi-cat" id="bcat">—</div>
-      <div class="track">
-        <div class="track-fill" id="tfill"></div>
-        <div class="track-pin" id="tpin"></div>
-      </div>
-      <div class="track-labs">
-        <span>under</span><span>normal</span><span>over</span><span>obese</span>
-      </div>
-    </div>
-    <div class="hist-wrap" id="hwrap">
-      <p class="hist-head">recent</p>
-      <ul class="hist-list" id="hlist"></ul>
-    </div>
-  </div>
-  <script src="script.js"></script>
+
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
