@@ -47,9 +47,9 @@ main{
     scale: 1.01;  
 }
 .inner-main .switch-btn button{
-    color: rgb(97, 97, 97);
+    color: rgb(135, 135, 135);
     padding: 5px 20px;
-    background-color: rgba(56, 56, 56, 0.616);
+    background-color: rgba(94, 94, 94, 0.616);
     border: none;
     transition: all .23s ease;
     font-weight: 500;

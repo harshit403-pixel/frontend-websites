@@ -131,7 +131,7 @@ form.addEventListener("submit", (e) => {
 
 
     if (unit == 'metric') {
-        if (!inputs[0].value || !inputs[1].value) {
+        if (!inputs[0].value || !inputs[1].value || inputs[0].value<0 ||inputs[1].value<0 ) {
             errorMsg.style.display = "block"
             return
         }
@@ -147,7 +147,7 @@ form.addEventListener("submit", (e) => {
         
         
         
-        if (!inputs[2].value || !inputs[3].value) {
+        if (!inputs[2].value || !inputs[3].value || inputs[2].value<0 ||inputs[3].value<0) {
             errorMsg.style.display = "block"
             return
         }
