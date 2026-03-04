@@ -15,6 +15,8 @@ let category;
 
 let bgColor;
 
+console.log(inputs);
+
 resetbtn.addEventListener("click", () => {
     storedWeights = []
     localStorage.setItem("storedWeights", JSON.stringify(storedWeights))
@@ -50,7 +52,7 @@ lbsBtn.addEventListener("click", () => {
 
 
 
-function calculateBMI(w, h, unit) {
+function calculateBMI(w, h, unit, namePerson) {
 
     let bmi;
     if (unit == 'metric') {
@@ -85,7 +87,8 @@ else {
           let newObj = {
         Bmi : `${bmi.toFixed(2)}`,
         Categoryy : `${category}`,
-        bgColor : `${bgColor}`
+        bgColor : `${bgColor}`,
+        personName : `${namePerson}`
     }
 
     storedWeights.push(newObj) 
@@ -96,9 +99,11 @@ else {
 }
 
 
-function showResult(finalBmi, finalCat) {
+function showResult(finalBmi, finalCat, naming) {
     let sum = ''
     sum += ` <div class="results">
+
+            <h2>Name : ${naming} </h2>
             <h2>Your BMI : ${finalBmi} </h2>
             <h2>Category : ${finalCat}</h2>
         </div>`
@@ -114,6 +119,8 @@ function prevResult(){
 
        mul += `        
        <div  style="background-color: ${elem.bgColor};" class="prev">
+
+            <p>${elem.personName}</p>
             <p>BMI : ${elem.Bmi}</p>
             <p>${elem.Categoryy}</p>
         </div>`
@@ -131,12 +138,12 @@ form.addEventListener("submit", (e) => {
 
 
     if (unit == 'metric') {
-        if (!inputs[0].value || !inputs[1].value || inputs[0].value<0 ||inputs[1].value<0 ) {
+        if (!inputs[0].value || !inputs[1].value || !inputs[2].value || inputs[1].value<0 ||inputs[2].value<0 ) {
             errorMsg.style.display = "block"
             return
         }
         else {
-            bmi = calculateBMI(inputs[0].value, inputs[1].value, unit)
+            bmi = calculateBMI(inputs[1].value, inputs[2].value, unit, inputs[0].value)
             errorMsg.style.display = "none"
         }
     }
@@ -147,7 +154,7 @@ form.addEventListener("submit", (e) => {
         
         
         
-        if (!inputs[2].value || !inputs[3].value || inputs[2].value<0 ||inputs[3].value<0) {
+        if (!inputs[0].value || !inputs[3].value || !inputs[4].value || inputs[3].value<0 ||inputs[4].value<0) {
             errorMsg.style.display = "block"
             return
         }
@@ -155,14 +162,14 @@ form.addEventListener("submit", (e) => {
             
             
             
-            bmi = calculateBMI(inputs[2].value, inputs[3].value, unit)
+            bmi = calculateBMI(inputs[3].value, inputs[4].value, unit, inputs[0].value)
             errorMsg.style.display = "none"
         }
     }
     
     
-    showResult(bmi, category)
-    prevResult(bmi, category)
+    showResult(bmi, category, inputs[0].value)
+    prevResult()
 
 
     form.reset()

@@ -16,7 +16,7 @@ button{
 }
 
 main{
-            background-image: url(./Untitled\ design\ \(34\).png); 
+            background-image: url(https://i.pinimg.com/1200x/2b/98/88/2b9888c054781328a6ffad2370ead6f4.jpg); 
             
         background-position: center;
         background-size: cover; 
@@ -32,10 +32,12 @@ main{
 }
 .inner-main{   
     border-radius: 10px; 
-    backdrop-filter: blur(40px);  
-    background-color: rgba(0, 0, 0, 0.479); 
+    backdrop-filter: blur(20px);  
+    background-color: rgba(0, 0, 0, 0.674); 
     box-shadow:inset .5px .5px 0px white, .5px .5px 0px white, 8px 9px 20px 0px rgba(0, 0, 0, 0.781) ;   
-    padding: 20px;
+    padding: 30px;
+    justify-content: center;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: 10px;
